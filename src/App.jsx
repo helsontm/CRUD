@@ -30,7 +30,7 @@ function App() {
       .post("https://users-crud.academlo.tech/users/", newProduct)
       .then(() => {
         getAllProducts();
-        setProductSelected(undefined);
+        setProductSelected(null);
       })
       .catch((error) => console.error(error));
   };
@@ -40,8 +40,11 @@ function App() {
     axios.delete(`url/${parametro}`)
     */
     axios
-      .delete(`https://products-crud.academlo.tech/products/${id}/`)
-      .then(() => getAllProducts())
+      .delete(`https://users-crud.academlo.tech/users/${id}/`)
+      .then(() =>{
+         getAllProducts()
+         setProductSelected(undefined);
+      })
       .catch((error) => console.error(error));
   };
 
@@ -55,7 +58,7 @@ function App() {
     */
     axios
       .put(
-        `https://products-crud.academlo.tech/products/${product.id}/`,
+        `https://users-crud.academlo.tech/users/${product.id}/`,
         product
       )
       .then(() => {
