@@ -30,7 +30,7 @@ function App() {
       .post("https://users-crud.academlo.tech/users/", newProduct)
       .then(() => {
         getAllProducts();
-        setProductSelected(null);
+        setProductSelected(undefined);
       })
       .catch((error) => console.error(error));
   };

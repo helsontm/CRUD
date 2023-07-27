@@ -1,6 +1,7 @@
 import{useForm} from 'react-hook-form'
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
 const UsersForm = ({ addProduct, productSelected, editProduct }) => {
   const { register, handleSubmit, reset } = useForm();
 
@@ -29,6 +30,8 @@ const UsersForm = ({ addProduct, productSelected, editProduct }) => {
       addProduct(data);
     }
   };
+
+  const[selectDate,setSelectDate ]=useState(null)
 
   return (
     <form onSubmit={handleSubmit(submit)}>
@@ -64,7 +67,18 @@ const UsersForm = ({ addProduct, productSelected, editProduct }) => {
           type="text"
           id="p-birthday"
           {...register("birthday", { required: true })}
+         
+        
         />
+        <ReactDatePicker 
+        selected={selectDate}
+        onChange={ data =>setSelectDate(data)}
+        dateFormat='yyyy-MM-dd'
+        id="p-birthday"
+        maxDate={new Date()}
+        showYearDropdown
+        />
+        
       </div>
       <div className="input-container">
         <label htmlFor="p-password">Contraseña</label>
