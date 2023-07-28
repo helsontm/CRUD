@@ -5,6 +5,7 @@ import ProducList from './components/UsersList';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 function App() {
   const [productsList, setProductsList] = useState([]);
   const [productSelected, setProductSelected] = useState(null);
@@ -72,14 +73,32 @@ function App() {
       .catch((error) => console.error(error));
   };
 
+  {'---------Lo de el modal-----------'}
+  const [show, setShow] = useState(false); 
+                    
+                    const openModal = () => {
+                        setShow(true);
+                    };
+
+                    const closeModal = () => {
+                        setShow(false);
+                    };
+
+
   return (
-    <main>
-      <ProducForm
+    <main>                      
+                           
+                           
+                            <ProducForm
         addProduct={addProduct}
         productSelected={productSelected}
         editProduct={editProduct}
+        closeModal={closeModal}
+        
       />
 
+                           
+      
       <ProducList
         productsList={productsList}
         deleteProduct={deleteProduct}

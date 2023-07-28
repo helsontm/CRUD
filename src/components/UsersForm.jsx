@@ -2,7 +2,8 @@ import{useForm} from 'react-hook-form'
 import { useEffect, useState } from "react";
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
-const UsersForm = ({ addProduct, productSelected, editProduct }) => {
+
+const UsersForm = ({ addProduct, productSelected, editProduct,  closeModal  }) => {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
@@ -33,15 +34,26 @@ const UsersForm = ({ addProduct, productSelected, editProduct }) => {
 
   const[selectDate,setSelectDate ]=useState(null)
 
-  return (
-    <form onSubmit={handleSubmit(submit)}>
-      <h2>Nuevo Usuario</h2>
 
+ 
+
+  
+
+  return (
+    
+
+    <section className='divForm'>
+      
+    <form onSubmit={handleSubmit(submit)}>
+    <button  onClick={() => closeModal}>❌</button>
+      <h2>Nuevo Usuario</h2>
+     
       <div className="input-container">
         <label htmlFor="p-first_name">Nombre</label>
         <input
           type="text"
           id="p-first_name"
+          placeholder='First Name'
           {...register("first_name", { required: true })}
         />
       </div>
@@ -50,6 +62,7 @@ const UsersForm = ({ addProduct, productSelected, editProduct }) => {
         <input
           type="text"
           id="p-last_name"
+          placeholder='Last Name'
           {...register("last_name", { required: true })}
         />
       </div>
@@ -58,14 +71,26 @@ const UsersForm = ({ addProduct, productSelected, editProduct }) => {
         <input
           type="text"
           id="p-email"
+          placeholder='Email'
           {...register("email", { required: true })}
         />
       </div>
+      <div className="input-container">
+        <label htmlFor="p-password">Contraseña</label>
+        <input
+          type="password"
+          id="p-password"
+          placeholder='Password'
+          {...register("password", { required: true })}
+        />
+      </div>
+
       <div className="input-container">
         <label htmlFor="p-birthday">Fecha de nacimiento</label>
         <input
           type="text"
           id="p-birthday"
+          placeholder='YYY-MM-DD'
           {...register("birthday", { required: true })}
          
         
@@ -77,20 +102,14 @@ const UsersForm = ({ addProduct, productSelected, editProduct }) => {
         id="p-birthday"
         maxDate={new Date()}
         showYearDropdown
+        placeholder='YYYY-MM-DD'
         />
         
       </div>
-      <div className="input-container">
-        <label htmlFor="p-password">Contraseña</label>
-        <input
-          type="password"
-          id="p-password"
-          {...register("password", { required: true })}
-        />
-      </div>
-      
+
       <button className='formButton'>Agregar nuevo usario</button>
     </form>
+    </section>
   );
 };
 

@@ -28,7 +28,7 @@
   }
   
   form {
-    
+    background-color: white;
     padding: 1.5rem;
     border: 1px solid darkgray;
     
@@ -44,7 +44,7 @@
   .input-container input {
     display: block;
     padding: 0.5rem 0.75rem;
-    
+    background-color: rgb(233, 233, 233);
     border: 1px solid darkgray;
     
   }
@@ -73,7 +73,8 @@
   }
 
   .formButton:hover {
-    background-color: rgb(116, 176, 245);
+    background-color: rgb(103, 206, 180);
+    color: rgb(44, 43, 43);
   }
 
   .plusUserButton:hover{
@@ -86,11 +87,16 @@
     right: -260px;
     top:10px; 
     background-color: rgb(158, 173, 188);
+    border: 3px solid;
+  border-color: #cfd3d4;
     width: 30px;
   }
 
+  
+
   .edit:hover{
     background-color: rgb(59, 151, 255);
+    
   }
 
   .erase{
@@ -98,6 +104,8 @@
     right: -250px;
     top:10px;
    background-color: lightsalmon;
+   border: 3px solid;
+  border-color: #cfd3d4;
    width: 30px;
   }
   
@@ -145,5 +153,17 @@
     border-color: rgba(219, 219, 219, 0.4);
    background-color: rgba(219, 219, 219, 0.4);
    
+  }
+
+  .divForm{
+    background-color: rgba(29, 27, 27, 0.564);
+   border-style: double ;
+  height: 100%;
+  width: 100%;
+  position:absolute;
+  z-index: 3;
+ display:flex;
+ justify-content: center;
+ align-items: center;
   }
   
