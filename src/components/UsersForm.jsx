@@ -89,7 +89,7 @@ const UsersForm = ({ addProduct, productSelected, editProduct }) => {
         />
       </div>
       
-      <button>Agregar nuevo usario</button>
+      <button className='formButton'>Agregar nuevo usario</button>
     </form>
   );
 };

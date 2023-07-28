@@ -30,8 +30,10 @@ function App() {
       .post("https://users-crud.academlo.tech/users/", newProduct)
       .then(() => {
         getAllProducts();
-        setProductSelected(undefined);
+        setProductSelected('');
       })
+      alert('¡Usuario Creado!')
+      setProductSelected(undefined)
       .catch((error) => console.error(error));
   };
 
@@ -45,6 +47,7 @@ function App() {
          getAllProducts()
          setProductSelected(undefined);
       })
+      alert('¡Usuario Eliminado!')
       .catch((error) => console.error(error));
   };
 
@@ -65,6 +68,7 @@ function App() {
         getAllProducts();
         setProductSelected(null);
       })
+      alert('¡Usaurio Editado!')
       .catch((error) => console.error(error));
   };
 
