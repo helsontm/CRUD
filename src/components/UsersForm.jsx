@@ -1,9 +1,9 @@
 import{useForm} from 'react-hook-form'
 import { useEffect, useState } from "react";
-import ReactDatePicker from 'react-datepicker';
+
 import 'react-datepicker/dist/react-datepicker.css'
 
-const UsersForm = ({ addProduct, productSelected, editProduct,  closeModal  }) => {
+const UsersForm = ({ addProduct, productSelected, editProduct,  closeModal, isOpen }) => {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
@@ -17,8 +17,8 @@ const UsersForm = ({ addProduct, productSelected, editProduct,  closeModal  }) =
         first_name:"",
         last_name:"",
         birthday:"",
-        price: "",
-        isAvailable: false
+        
+        
       });
     }
   }, [productSelected]);
@@ -34,6 +34,11 @@ const UsersForm = ({ addProduct, productSelected, editProduct,  closeModal  }) =
 
   const[selectDate,setSelectDate ]=useState(null)
 
+  //evita ejecutar los click en de los elementos padre
+  const handleModclic=(e)=>{
+    e.stopPropagation();
+  }
+
 
  
 
@@ -42,10 +47,12 @@ const UsersForm = ({ addProduct, productSelected, editProduct,  closeModal  }) =
   return (
     
 
-    <section className='divForm'>
+    <section className={`divForm ${isOpen && 'divForm-open'}`} onClick={closeModal}>
       
-    <form onSubmit={handleSubmit(submit)}>
-    <button  onClick={() => closeModal}>❌</button>
+    <form onSubmit={handleSubmit(submit)} onClick={handleModclic}>
+      <div className='contButton'>
+    <button  className='buttonCloseModal' onClick={closeModal} title='cerrar'>❌</button>
+    </div>
       <h2>Nuevo Usuario</h2>
      
       <div className="input-container">
@@ -88,14 +95,14 @@ const UsersForm = ({ addProduct, productSelected, editProduct,  closeModal  }) =
       <div className="input-container">
         <label htmlFor="p-birthday">Fecha de nacimiento</label>
         <input
-          type="text"
+          type="date"
           id="p-birthday"
-          placeholder='YYY-MM-DD'
+          max='2022-01-31'
           {...register("birthday", { required: true })}
          
         
         />
-        <ReactDatePicker 
+        {/*<ReactDatePicker 
         selected={selectDate}
         onChange={ data =>setSelectDate(data)}
         dateFormat='yyyy-MM-dd'
@@ -105,9 +112,10 @@ const UsersForm = ({ addProduct, productSelected, editProduct,  closeModal  }) =
         placeholder='YYYY-MM-DD'
         />
         
-      </div>
-
-      <button className='formButton'>Agregar nuevo usario</button>
+  */}
+</div>
+      <button  className='formButton'>Agregar nuevo usario</button>
+      
     </form>
     </section>
   );

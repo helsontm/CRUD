@@ -18,25 +18,20 @@
    justify-content: space-between;
    height: 50px;
   }
-
- 
-    
-
+/*_----Stilos del formulario------*/
   .container {
     display: flex;
     gap: 2rem;
   }
   
   form {
+    
     background-color: white;
     padding: 1.5rem;
     border: 1px solid darkgray;
-    
-    position: absolute;
-    z-index: 1;
 
   }
-  
+
   .input-container {
     margin-bottom: 0.75rem;
   }
@@ -52,7 +47,6 @@
   button {
     padding: 0.5rem 1rem;
     border: none;
-    
     cursor: pointer;
   }
   
@@ -63,6 +57,37 @@
     margin-top: 1rem;
   }
 
+  .contButton{
+    display: grid;
+    justify-content: end;
+    
+  }
+
+  .buttonCloseModal{
+    background-color: transparent;
+  }
+
+  /*--Stilo de la caja  pricipal del formulario----*/
+  .divForm{
+    background-color: rgba(29, 27, 27, 0.564);
+  height: 100%;
+  width: 100%;
+  position:fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+ display:none;
+ justify-content: center;
+ align-items: center;
+ 
+  }
+
+  .divForm-open{
+    display:grid;
+    
+  }
+
+  /*----Stilos del Boton Añadir Usuario---------*/
   .plusUserButton{
     background-color: rgb(92, 137, 182);
     color: white;
@@ -82,6 +107,7 @@
     color: rgb(44, 43, 43);
   }
 
+  /*-----------Stilos del boton Editar------------*/
   .edit{
     position: relative;
     right: -260px;
@@ -98,7 +124,7 @@
     background-color: rgb(59, 151, 255);
     
   }
-
+/*------stilos del boton borrar-----*/
   .erase{
     position: relative;
     right: -250px;
@@ -115,7 +141,7 @@
     
   }
 
-  
+  /*------------Stilo de la lista ul-------*/
   ul {
    list-style: none;
   display: flex;
@@ -123,7 +149,7 @@
     flex-wrap: wrap;
     justify-content:space-evenly;
     align-content: stretch;
-    border-style: double;
+    
   }
   
   section ul li {
@@ -132,6 +158,8 @@
     
     margin-bottom: 1rem;
   }
+
+  /*----------------Stilo del li----*/
   li{
    
     border: 2px solid rgba(62, 5, 5, 0.1);
@@ -155,15 +183,47 @@
    
   }
 
-  .divForm{
-    background-color: rgba(29, 27, 27, 0.564);
-   border-style: double ;
-  height: 100%;
-  width: 100%;
-  position:absolute;
-  z-index: 3;
- display:flex;
- justify-content: center;
- align-items: center;
+  /*-----------Stilos del responsive---------------*/
+
+  @media screen and (max-width: 500px) {
+
+    .divheader {
+      
+      align-items: center;
+      flex-direction: column-reverse;
   }
+
+    .erase {
+      right: -140px;
+    }
+    .edit {
+      right: -150px;
+
+    }
+
+
+  }
+
+
+  @media screen and (max-width: 400px) {
+
+    .divheader {
+      
+      align-items: center;
+      flex-direction: column-reverse;
+  }
+
+    .erase {
+      right: -130px;
+    }
+    .edit {
+      right: -140px;
+
+    }
+
+
+  }
+
+
+  
   
