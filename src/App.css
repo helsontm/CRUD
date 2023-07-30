@@ -107,11 +107,16 @@
     color: rgb(44, 43, 43);
   }
 
+  /*-----------Estilo del contenedor de los botones borrar y editar-----------*/
+  .divButonShowUsers{
+    display:flex;
+    justify-content: flex-end;
+
+  }
   /*-----------Stilos del boton Editar------------*/
   .edit{
-    position: relative;
-    right: -260px;
-    top:10px; 
+    
+    margin: 8px;
     background-color: rgb(158, 173, 188);
     border: 3px solid;
   border-color: #cfd3d4;
@@ -126,9 +131,8 @@
   }
 /*------stilos del boton borrar-----*/
   .erase{
-    position: relative;
-    right: -250px;
-    top:10px;
+    
+   margin: 8px;
    background-color: lightsalmon;
    border: 3px solid;
   border-color: #cfd3d4;
@@ -174,7 +178,7 @@
   }
 
   img{
-    width: 25px;
+    width: 15px;
   }
 
   hr{
@@ -182,6 +186,12 @@
    background-color: rgba(219, 219, 219, 0.4);
    
   }
+
+  p{
+    padding: 5px;
+  }
+
+  
 
   /*-----------Stilos del responsive---------------*/
 
@@ -200,8 +210,6 @@
       right: -150px;
 
     }
-
-
   }
 
 

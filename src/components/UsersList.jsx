@@ -14,7 +14,9 @@ const UsersList = ({ usersList, deleteProduct, selectProduct,  openModal  }) => 
             <p>
               <span>Correo</span>
               <br />
-              <img src="sobre.png"></img>{user.email}
+              <div>
+              <img src="sobre.png" ></img> {user.email}
+              </div>
             </p>
             <p>
               <span>Cumpleaños</span>
@@ -22,12 +24,13 @@ const UsersList = ({ usersList, deleteProduct, selectProduct,  openModal  }) => 
               <img src="calendario.png"></img> {user.birthday}
             </p>
             
-
+          <div className="divButonShowUsers">
             <img title="Eliminar" onClick={() => deleteProduct(user.id)} src="/basura.png" className="erase"></img>
                                              {/* se le da la funcion para que muestre */}
             <img onClick={() => selectProduct(user, openModal()) }  title="Editar" src="/lapiz-de-usuario.png" className="edit"
                
             ></img>
+            </div>
           </li>
         ))}
       </ul>
