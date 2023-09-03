@@ -1,6 +1,11 @@
 
 const UsersList = ({ usersList, deleteProduct, selectProduct,  openModal  }) => {
 
+  function formato(texto){
+    var fechaHora = new Date(texto)
+    return fechaHora.toISOString().split('T')[0].replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3/$2/$1');
+  }
+
     return (
       <section>
        
@@ -21,7 +26,7 @@ const UsersList = ({ usersList, deleteProduct, selectProduct,  openModal  }) => 
             <p>
               <span>Cumpleaños</span>
               <br />
-              <img src="calendario.png"></img> {user.birthday}
+              <img src="calendario.png"></img> {formato(user.birthday)}
             </p>
             
           <div className="divButonShowUsers">

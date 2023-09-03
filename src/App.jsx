@@ -27,7 +27,8 @@ function App() {
 
   const getAllUsers = () => {
     axios
-      .get("https://users-crud.academlo.tech/users/")
+      //.get("http://localhost:8080/crud")
+      .get("https://crud-app-45oq.onrender.com/crud")
       .then((resp) => setUsersList(resp.data))
       .catch((error) => console.error(error));
   };
@@ -43,7 +44,8 @@ function App() {
     */
 
     axios
-      .post("https://users-crud.academlo.tech/users/", newProduct)
+      //.post("http://localhost:8080/crud/", newProduct)
+      .post("https://crud-app-45oq.onrender.com/crud", newProduct)
       .then(() => {
         getAllUsers();
         setUserSelected('');
@@ -58,7 +60,8 @@ function App() {
     axios.delete(`url/${parametro}`)
     */
     axios
-      .delete(`https://users-crud.academlo.tech/users/${id}/`)
+      //.delete(`http://localhost:8080/crud/${id}/`)
+      .delete(`https://crud-app-45oq.onrender.com/crud${id}/`)
       .then(() =>{
         getAllUsers()
         setUserSelected(undefined);
@@ -77,7 +80,7 @@ function App() {
     */
     axios
       .put(
-        `https://users-crud.academlo.tech/users/${user.id}/`,
+        `https://crud-app-45oq.onrender.com/crud/${user.id}/`,
         user
       )
       .then(() => {
